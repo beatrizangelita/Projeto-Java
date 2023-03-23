@@ -1,19 +1,78 @@
 package projetos;
 
+import java.util.List;
 import java.util.Scanner;
 
 public class projet1 {
 
 	public static void main(String[] args) {
 		Scanner leia = new Scanner(System.in);
-		int op;
-
+		int op, opRenda, dia;
+		Double rendaFixa, somaVariavel = 0, var;
+		List<Double> rendaVar = new ArrayList<Double>();
+		
+		
 		do {
 		
 			op = leia.nextInt();
 			switch (op) {
 			case 1:
-				System.out.println("\n\n Insira a sua Renda: ");
+				do {
+				System.out.println("      __________________________________________________________");
+				System.out.println("     |                      MENU RENDA                          |");
+				System.out.println("     |__________________________________________________________|");
+				System.out.println("     |              Escolha uma das opções a seguir:            |");
+				System.out.println("     | (1) Inserir Renda Fixa                                   |");
+				System.out.println("     |                                                          |");
+				System.out.println("     | (2) Alterar Renda Fixa                                   |");
+				System.out.println("     |                                                          |");
+				System.out.println("     | (3) Adicionar Renda Variavel                             |");        
+				System.out.println("     |                                                          |");
+				System.out.println("     | (4) Resumo de Ganhos                                     |");        
+				System.out.println("     |                                                          |");
+				System.out.println("     | (0) SAIR                                                 |");
+				System.out.println("     |__________________________________________________________|");
+				opRenda = leia.nextInt();
+				
+				switch(opRenda){
+				case 1:
+					System.out.println("\nDigite o valor da sua Renda Fixa: ");
+					rendaFixa = leia.nextDouble();
+					System.out.println("\nRenda Fixa adicionada com sucesso!");
+					break;
+				case 2:
+					if(rendaFixa == 0) {
+						System.out.println("\nVoce não possui Renda Fixa cadastrada."
+								+ "\nCadastre um valor antes de alterar!");
+					}else {
+					System.out.println("\nDigite o valor da sua NOVA Renda Fixa");
+					rendaFixa = leia.nextDouble();}
+					System.out.println("\nValor da Renda Fixa alterado com sucesso!");
+					break;
+				case 3:
+					System.out.println("\nInsira o valor da entrada:");
+					var = leia.nextDouble();
+					rendaVar.add(var);
+					
+					for(Double listaVar:rendaVar) {
+						somaVariavel += rendaVar;
+					}
+					break;
+				case 4:
+					System.out.println("\nEsse e o seu resumo de Ganhos:");
+					System.out.println("\n\nRenda Fixa: "+rendaFixa);
+					System.out.println("\n\nRenda Variavel: "+somaVariavel);
+					System.out.println("\nTotal de Entradas: "+(rendaFixa+somaVariavel));
+					
+					break;
+				case 0:
+					
+					break;
+				default:
+					System.out.println("\nOpcao Invalida!");
+					break;
+			}
+				}while(opRenda != 0);
 				break;
 				
 			case 2:

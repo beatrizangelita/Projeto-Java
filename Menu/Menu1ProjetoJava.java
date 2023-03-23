@@ -27,7 +27,7 @@ public class Menu1ProjetoJava {
 				System.out.println("                            |                               MENU                                      |");
 				System.out.println("                            |_________________________________________________________________________|");
 				System.out.println("                            |                      Escolha as opções a seguir:                        |");
-				System.out.println("                            | (1) Inserir Renda                                                       |");
+				System.out.println("                            | (1) Inserir Renda                                                       |"); //Inserir opcao resumo contas
 				System.out.println("                            |                                                                         |");
 				System.out.println("                            | (2) Inserir Despesas Fixas                                              |");        
 				System.out.println("                            |                                                                         |");
@@ -48,8 +48,8 @@ public class Menu1ProjetoJava {
 					System.out.println("Tio Patinhas te espera!");
 					leia.close();
 					System.exit(0);
-
 				}
+				
 			}	
 			
 	}
