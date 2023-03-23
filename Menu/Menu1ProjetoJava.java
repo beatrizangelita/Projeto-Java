@@ -22,7 +22,7 @@ public class Menu1ProjetoJava {
 			idade = leia.nextInt();
 			System.out.println("\n                           Obrigada pelas informações " +nome+ "! Agora vamos te apresentar o nosso menu: " );
 			
-			while (true) {
+			do {
 				System.out.println("                             _________________________________________________________________________");
 				System.out.println("                            |                               MENU                                      |");
 				System.out.println("                            |_________________________________________________________________________|");
@@ -43,14 +43,54 @@ public class Menu1ProjetoJava {
 				System.out.println("                            |_________________________________________________________________________|");
 				System.out.println(" \n");
 				opcao = leia.nextInt();
-
-				if (opcao == 9) {
-					System.out.println("Tio Patinhas te espera!");
-					leia.close();
-					System.exit(0);
-				}
 				
-			}	
+				
+			switch (opcao) {
+			case 1:
+				System.out.println("\n\n Insira a sua Renda: ");
+				break;
+				
+			case 2:
+				System.out.println("\n Insira suas Despesas Variadas: ");
+				break;
+		
+			case 3:
+				System.out.println("\n Insira valor de Emergência: ");
+				break;
+				
+			case 4:
+				System.out.println("\n\n Insira o valor de Investimento: ");
+				break;
+				
+			case 5:
+				System.out.println("\n\n Resumo Geral");
+				break;
+				
+			case 6:
+				System.out.println("\nPrimeiro: Comece aos poucos");
+				System.out.println("\nSegundo: Estude");
+				System.out.println("\nTerceiro: Invista em si mesmo ");
+				System.out.println("\nQuarto: Ética e Trabalho árduo");
+				System.out.println("\nQuinto: Faça bons investimentos");
+				System.out.println("\nSexto: Estude e fique de olho nas Inflações");
+				System.out.println("\nSétimo: Faça o que ama");
+				System.out.println("\nOitavo: Faça um fundo de emergência");
+				System.out.println("\nNono: Nunca trapaceie");
+				System.out.println("\nDécimo: Tenha Resiliência nunca recue perante um desafio");
+				System.out.println("\nDécimo Primeiro: Valorize sua família");
+				break;
+				
+			case 7:
+				System.out.println("\n\nObrigado por usar!!!");
+				break;
+				
+			default:
+				System.out.println("\nOpção Inválida!\n");
+				break;
+			}
+		} while (opcao != 7);
+		System.out.println("\nTio Patinhas te espera!");
+		
 			
 	}
 }		
