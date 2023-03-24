@@ -143,7 +143,7 @@ public class Menu1ProjetoJava {
 								}
 								break;
 							case 4:
-								System.out.println("\nEsse e o seu resumo de Ganhos:");
+								System.out.println("\nEsse e o seu resumo de Gastos:");
 								System.out.println("\n\nDespesa Fixa: " + despesaFixa);
 								System.out.println("\n\nDespesa Variavel: "+somaDespesa);
 								System.out.println("\nTotal de Saídas: "+(despesaFixa+somaDespesa));
