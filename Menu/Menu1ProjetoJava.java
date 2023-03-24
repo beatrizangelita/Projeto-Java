@@ -9,12 +9,12 @@ public class Menu1ProjetoJava {
 	public static void main(String[] args) {
 			
 			String nome;
-			int opcao, idade, opRenda, dia, inv, opInv;
-			double porcentagemInvMedio, porcentagemInvCurto, porcentagemInvLongo;
+			int opcao, idade, opRenda, dia, inv, opInv, opDespesa;
+			double porcentagemInvMedio, porcentagemInvCurto, porcentagemInvLongo, somaDespesa;
 			Scanner leia = new Scanner(System.in);
-		        double rendaFixa = 0, var, invCurto = 0, invMedio=0, invLongo =0, invTotal =0;
+		        double rendaFixa = 0, var, invCurto = 0, invMedio=0, invLongo =0, invTotal =0, despesaFixa;
 		        List<Double> rendaVar = new ArrayList<Double>();
-		      
+		        List<Double> despesaVar = new ArrayList<Double>();
 		
 			
 			
@@ -105,14 +105,58 @@ public class Menu1ProjetoJava {
 				default:
 					System.out.println("\nOpcao Invalida!");
 					break;
-			}
+				}
 				}while(opRenda != 0);
 				break;
 				
 
 				
 			case 2:
-				System.out.println("\n Insira suas Despesas: ");
+						do {
+						System.out.println("      __________________________________________________________");
+						System.out.println("     |                      MENU DESPESA                        |");
+						System.out.println("     |__________________________________________________________|");
+						System.out.println("     |              Escolha uma das opções a seguir:            |");
+						System.out.println("     | (1) Inserir Despesas Fixas                               |");
+						System.out.println("     |                                                          |");
+						System.out.println("     | (2) Adicionar Despesas Casuais                           |");        
+						System.out.println("     |                                                          |");
+						System.out.println("     | (3) Resumo de Gastos                                     |");        
+						System.out.println("     |                                                          |");
+						System.out.println("     | (0) SAIR                                                 |");
+						System.out.println("     |__________________________________________________________|");
+						opDespesa = leia.nextInt();
+						
+							switch(opDespesa){
+							case 1:
+								System.out.println("\nDigite o valor da sua Despesa Fixa: ");
+								despesaFixa = leia.nextDouble();
+								System.out.println("\nDespesa Fixa adicionada com sucesso!");
+								break;
+							case 2:
+								System.out.println("\nInsira o valor da entrada:");
+								var = leia.nextDouble();
+								despesaVar.add(var);
+								
+								for(Double listaVar:despesaVar) {
+									somaDespesa += despesaVar;
+								}
+								break;
+							case 4:
+								System.out.println("\nEsse e o seu resumo de Ganhos:");
+								System.out.println("\n\nDespesa Fixa: " + despesaFixa);
+								System.out.println("\n\nDespesa Variavel: "+somaDespesa);
+								System.out.println("\nTotal de Saídas: "+(despesaFixa+somaDespesa));
+								
+								break;
+							case 0:
+								
+								break;
+							default:
+								System.out.println("\nOpcao Invalida!");
+								break;
+							}
+						}while(opDespesa != 0);
 				break;
 		
 			case 3:
