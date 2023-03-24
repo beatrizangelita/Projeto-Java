@@ -9,10 +9,12 @@ public class Menu1ProjetoJava {
 	public static void main(String[] args) {
 			
 			String nome;
-			int opcao, idade, opRenda, dia;;
+			int opcao, idade, opRenda, dia, inv, opInv;
+			double porcentagemInvMedio, porcentagemInvCurto, porcentagemInvLongo;
 			Scanner leia = new Scanner(System.in);
-		        Double rendaFixa, somaVariavel = 0, var;
+		        double rendaFixa = 0, var, invCurto = 0, invMedio=0, invLongo =0, invTotal =0;
 		        List<Double> rendaVar = new ArrayList<Double>();
+		      
 		
 			
 			
@@ -33,13 +35,13 @@ public class Menu1ProjetoJava {
 				System.out.println("                            |                      Escolha as opções a seguir:                        |");
 				System.out.println("                            | (1) Inserir Renda                                                       |"); //Inserir opcao resumo contas
 				System.out.println("                            |                                                                         |");
-				System.out.println("                            | (2) Inserir Despesas Fixas                                              |");        
+				System.out.println("                            | (2) Inserir Despesas                                                    |");        
 				System.out.println("                            |                                                                         |");
-				System.out.println("                            | (3) Inserir Despesas Variadas                                           |");
+				System.out.println("                            | (3) Inserir valor para Poupança                                         |");
 				System.out.println("                            |                                                                         |");
-				System.out.println("                            | (4) Inserir valor para Poupança                                         |");
+				System.out.println("                            | (4) Inserir valor para Investimentos                                    |");
 				System.out.println("                            |                                                                         |");
-				System.out.println("                            | (5) Inserir valor para Investimentos                                    |");
+				System.out.println("                            | (5) RELATÓRIO GERAL                                                     |");
 				System.out.println("                            |                                                                         |");
 				System.out.println("                            | (6) Dicas do Tio Patinhas para organizar suas Finanças                  |");
 				System.out.println("                            |                                                                         |");
@@ -60,7 +62,7 @@ public class Menu1ProjetoJava {
 				System.out.println("     |                                                          |");
 				System.out.println("     | (2) Alterar Renda Fixa                                   |");
 				System.out.println("     |                                                          |");
-				System.out.println("     | (3) Adicionar Renda Variavel                             |");        
+				System.out.println("     | (3) Inserir Renda Variavel                               |");        
 				System.out.println("     |                                                          |");
 				System.out.println("     | (4) Resumo de Ganhos                                     |");        
 				System.out.println("     |                                                          |");
@@ -89,14 +91,12 @@ public class Menu1ProjetoJava {
 					rendaVar.add(var);
 					
 					for(Double listaVar:rendaVar) {
-						somaVariavel += rendaVar;
 					}
 					break;
 				case 4:
 					System.out.println("\nEsse e o seu resumo de Ganhos:");
 					System.out.println("\n\nRenda Fixa: "+rendaFixa);
-					System.out.println("\n\nRenda Variavel: "+somaVariavel);
-					System.out.println("\nTotal de Entradas: "+(rendaFixa+somaVariavel));
+
 					
 					break;
 				case 0:
@@ -109,18 +109,88 @@ public class Menu1ProjetoJava {
 				}while(opRenda != 0);
 				break;
 				
+
 				
 			case 2:
-				System.out.println("\n Insira suas Despesas Variadas: ");
+				System.out.println("\n Insira suas Despesas: ");
 				break;
 		
 			case 3:
-				System.out.println("\n Insira valor de Emergência: ");
+				System.out.println("\n Insira valor para poupança: ");
+				break;
+			case 4:
+				
+				
+				do {
+					System.out.println("      __________________________________________________________");
+					System.out.println("     |                  MENU INVESTIMENTOS                      |");
+					System.out.println("     |__________________________________________________________|");
+					System.out.println("     |              Escolha uma das opções a seguir:            |");
+					System.out.println("     | (1) Inserir Investimento a Curto Prazo                   |");
+					System.out.println("     |                                                          |");
+					System.out.println("     | (2) Inserir Investimento a Medio Prazo                   |");
+					System.out.println("     |                                                          |");
+					System.out.println("     | (3) Inserir Investimentos a Longo Prazo                  |");        
+					System.out.println("     |                                                          |");
+					System.out.println("     | (4) Valor Total de Investimentos                         |");        
+					System.out.println("     |                                                          |");
+					System.out.println("     | (5) Médias de cada variável                              |");
+					System.out.println("     |                                                          |");
+					System.out.println("     | (0) SAIR                                                 |");
+					System.out.println("     |__________________________________________________________|");
+					opInv = leia.nextInt();
+			    
+					switch(opInv) {
+			     case 1: 
+			    	 System.out.println("Insira um valor para investimento a curto prazo: ");
+			    	 invCurto = leia.nextDouble();
+			    	 System.out.println("\n Valor de Investimento inserido com sucesso!");
+			    break;
+			    
+			     case 2:
+			    	 System.out.println("\n Insira um valor para investimento a médio prazo: ");
+			    	 invMedio=leia.nextDouble();
+			    	 System.out.println("\n Valor de Investimento inserido com sucesso!");
+			    break;
+			    
+			     case 3:
+			    	 System.out.println("\n Insira um valor para investimento a longo prazo:  ");
+			    	 invLongo=leia.nextDouble();
+			    	 System.out.println("\n Valor de Investimento inserido com sucesso!");
+			    break;
+			    
+			     case 4:
+			    	 invTotal = invCurto + invMedio + invLongo;
+			    	 System.out.println("\n Valor total inserido para investimentos: R$ "+invTotal);
+			    break;
+			    
+			     case 5:
+			    	 invTotal = invCurto + invMedio + invLongo;
+			    	 porcentagemInvCurto =  (invCurto*100)/invTotal;
+			    	 leia.nextLine();
+			    	 
+			    	 System.out.printf("\n Porcentagem de investimentos a curto prazo: `%.2f%%`" ,porcentagemInvCurto);
+
+			    	 porcentagemInvMedio =  (invMedio*100)/invTotal;
+			    	 System.out.printf("\n Porcentagem de investimentos a médio prazo: `%.2f%%`" ,porcentagemInvMedio);
+			    	 
+			    	 porcentagemInvLongo =  (invLongo*100)/invTotal;
+			    	 System.out.printf("\n Porcentagem de investimentos a longo prazo: `%.2f%%`" ,porcentagemInvLongo);
+			    	 
+			    	 System.out.println("\n");
+			    	 
+
+			
+			     case 0:
+			     break;
+			     
+			     default: 
+			    	 System.out.println("\n Opção Inválida!");
+			     }
+					
+				 }while(opInv !=0);
 				break;
 				
-			case 4:
-				System.out.println("\n\n Insira o valor de Investimento: ");
-				break;
 				
 			case 5:
 				System.out.println("\n\n Resumo Geral");
