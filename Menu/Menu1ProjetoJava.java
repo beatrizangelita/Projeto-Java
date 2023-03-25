@@ -10,15 +10,19 @@ public class Menu1ProjetoJava {
 			
 			String nome;
 			
-			int opcao, idade, opRenda, dia, inv, opInv, opPoup;
+			int opcao, idade, opRenda, inv, opInv, opPoup, opDespesa;
 			
-			double porcentagemInvMedio, porcentagemInvCurto, porcentagemInvLongo,rendaFixa = 0, var, invCurto = 0, invMedio=0, invLongo =0, invTotal =0, somaPoup = 0;
-			
+			double porcentagemInvMedio, porcentagemInvCurto, porcentagemInvLongo, rendaFixa = 0, 
+			varRenda, invCurto = 0, invMedio=0, invLongo =0, invTotal =0, somaPoup = 0, 
+			despesaFixa, somaDespesa = 0, varDespesa;
+
 			Scanner leia = new Scanner(System.in);
 		    
 			List<Double> rendaVar = new ArrayList<Double>();
 
 			List<Double> listaPoup = new ArrayList<Double>();
+
+			List<Double> despesaVar = new ArrayList<Double>();
 		
 			
 			// Menu Principal
@@ -37,13 +41,13 @@ public class Menu1ProjetoJava {
 				System.out.println("                            |                               MENU                                      |");
 				System.out.println("                            |_________________________________________________________________________|");
 				System.out.println("                            |                      Escolha as opções a seguir:                        |");
-				System.out.println("                            | (1) Inserir Renda                                                       |"); //Inserir opcao resumo contas
+				System.out.println("                            | (1) Acessar Menu Renda                                                  |"); //Inserir opcao resumo contas
 				System.out.println("                            |                                                                         |");
-				System.out.println("                            | (2) Inserir Despesas                                                    |");        
+				System.out.println("                            | (2) Acessar Menu Despesas                                               |");        
 				System.out.println("                            |                                                                         |");
-				System.out.println("                            | (3) Inserir valor para Poupança                                         |");
+				System.out.println("                            | (3) Acessar Menu Poupança                                               |");
 				System.out.println("                            |                                                                         |");
-				System.out.println("                            | (4) Inserir valor para Investimentos                                    |");
+				System.out.println("                            | (4) Acessar Menu Investimentos                                          |");
 				System.out.println("                            |                                                                         |");
 				System.out.println("                            | (5) RELATÓRIO GERAL                                                     |");
 				System.out.println("                            |                                                                         |");
@@ -91,8 +95,8 @@ public class Menu1ProjetoJava {
 					break;
 				case 3:
 					System.out.println("\nInsira o valor da entrada:");
-					var = leia.nextDouble();
-					rendaVar.add(var);
+					varRenda = leia.nextDouble();
+					rendaVar.add(varRenda);
 					
 					for (int i = 0; i < rendaVar.size(); i++) {
 							somaVariavel += rendaVar.get(i);
@@ -115,9 +119,53 @@ public class Menu1ProjetoJava {
 				break;
 				
 
-				
+			// Menu Despesas	
 			case 2:
-				System.out.println("\n Insira suas Despesas: ");
+				
+				do {
+					System.out.println("      __________________________________________________________");
+					System.out.println("     |                      MENU DESPESAS                       |");
+					System.out.println("     |__________________________________________________________|");
+					System.out.println("     |              Escolha uma das opções a seguir:            |");
+					System.out.println("     | (1) Inserir Despesas Fixas                               |");
+					System.out.println("     |                                                          |");
+					System.out.println("     | (2) Adicionar Despesas Casuais                           |");        
+					System.out.println("     |                                                          |");
+					System.out.println("     | (3) Resumo de Gastos                                     |");        
+					System.out.println("     |                                                          |");
+					System.out.println("     | (0) SAIR                                                 |");
+					System.out.println("     |__________________________________________________________|");
+					opDespesa = leia.nextInt();
+				
+				switch(opDespesa)
+				case 1:
+						System.out.println("\nDigite o valor da sua Despesa Fixa: ");
+						despesaFixa = leia.nextDouble();
+						System.out.println("\nDespesa Fixa adicionada com sucesso!");
+						break;
+					case 2:
+						System.out.println("\nInsira o valor da entrada:");
+						varDespesa = leia.nextDouble();
+						despesaVar.add(varDespesa);
+						
+						for(int i = 0; i < despesaVar.size(); i++) {
+							somaDespesa += despesaVar.get(i);
+						}
+						break;
+					case 4:
+						System.out.println("\nEsse e o seu resumo de Ganhos:");
+						System.out.println("\n\nRenda Fixa: "+despesaFixa);
+						System.out.println("\n\nRenda Variavel: "+somaDespesa);
+						System.out.println("\nTotal de Entradas: "+(despesaFixa+somaDespesa));
+						
+						break;
+					case 0:
+						
+						break;
+					default:
+						System.out.println("\nOpcao Invalida!");
+						break;
+				} while (opDespesa != 0);
 				break;
 		
 			case 3:
