@@ -354,7 +354,7 @@ public class Menu1ProjetoJava {
 			case 6:
 				
 				System.out.println("      __________________________________________________________");
-				System.out.println("     |                  MENU INVESTIMENTOS                      |");
+				System.out.println("     |                  		MENU DICAS		                |");
 				System.out.println("     |__________________________________________________________|");
 				System.out.println("     |              Escolha uma das opções a seguir:            |");
 				System.out.println("     | (1) Dicas							                    |");
