@@ -203,13 +203,13 @@ public class Menu1ProjetoJava {
 					System.out.println("	     |                      MENU POUPANÇA                       |");
 					System.out.println("	     |__________________________________________________________|");
 					System.out.println("	     |              Escolha uma das opções a seguir:            |");
-					System.out.println("	     | (1) Adicionar Renda                                      |");
+					System.out.println("	     | (1) Adicionar Valor                                      |");
 					System.out.println("	     |                                                          |");
-					System.out.println("	     | (2) Listar Renda 	                                    |");
+					System.out.println("	     | (2) Listar Valor 	                                    |");
 					System.out.println("	     |                                                          |");
-					System.out.println("	     | (3) Remover Renda                                        |");
+					System.out.println("	     | (3) Remover Valor                                        |");
 					System.out.println("	     |                                                          |");
-					System.out.println("	     | (4) Resumo da Renda                                      |");
+					System.out.println("	     | (4) Valor total da Poupança                              |");
 					System.out.println("	     |                                                          |");
 					System.out.println("	     | (0) Voltar ao Menu Principal                             |");
 					System.out.println("	     |__________________________________________________________|");
