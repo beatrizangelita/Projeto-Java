@@ -10,7 +10,7 @@ public class Menu1ProjetoJava {
 			
 			String nome;
 
-		int opcao, idade, opRenda, inv, opInv, opPoup, opDespesa;
+		int opcao, idade, opRenda, inv, opInv, opPoup, opDespesa, opDicas;
 
 		double porcentagemInvMedio, porcentagemInvCurto, porcentagemInvLongo, rendaFixa = 0, varRenda, invCurto = 0,
 				invMedio = 0, invLongo = 0, invTotal = 0, somaPoup = 0, somaVariavel = 0, despesaFixa = 0, somaDespesa = 0,
@@ -101,6 +101,8 @@ public class Menu1ProjetoJava {
 					System.out.println("     |                                                          |");
 					System.out.println("     | (0) Voltar ao Menu Principal                             |");
 					System.out.println("     |__________________________________________________________|");
+					System.out.println(" \n");
+					System.out.print("Digite a opção desejada: \n");
 					opRenda = leia.nextInt();
 
 					switch (opRenda) {
@@ -137,7 +139,7 @@ public class Menu1ProjetoJava {
 
 						break;
 					default:
-						System.out.println("\nOpcao Invalida!");
+						System.out.print(cores.TEXT_RED_BOLD + "Opção Inválida! \n\n " + cores.TEXT_RESET);
 						break;
 					}
 				} while (opRenda != 0);
@@ -159,6 +161,8 @@ public class Menu1ProjetoJava {
 					System.out.println("     |                                                          |");
 					System.out.println("     | (0) Voltar ao Menu Principal                             |");
 					System.out.println("     |__________________________________________________________|");
+					System.out.println(" \n");
+					System.out.print("Digite a opção desejada: \n");
 					opDespesa = leia.nextInt();
 
 					switch (opDespesa) {
@@ -187,7 +191,7 @@ public class Menu1ProjetoJava {
 
 						break;
 					default:
-						System.out.println("\nOpcao Invalida!");
+						System.out.print(cores.TEXT_RED_BOLD + "Opção Inválida! \n\n " + cores.TEXT_RESET);
 					}
 					
 				} while (opDespesa != 0);
@@ -285,6 +289,8 @@ public class Menu1ProjetoJava {
 					System.out.println("     |                                                          |");
 					System.out.println("     | (0) Voltar ao Menu Principal                             |");
 					System.out.println("     |__________________________________________________________|");
+					System.out.print("\n");
+					System.out.print("Digite a opção desejada: \n");
 					opInv = leia.nextInt();
 
 					switch (opInv) {
@@ -333,7 +339,7 @@ public class Menu1ProjetoJava {
 						break;
 
 					default:
-						System.out.println("\n Opção Inválida!");
+						System.out.print(cores.TEXT_RED_BOLD + "Opção Inválida! \n\n " + cores.TEXT_RESET);
 					}
 
 				} while (opInv != 0);
@@ -346,17 +352,42 @@ public class Menu1ProjetoJava {
 
 			// Orientações sobre investimento
 			case 6:
-				System.out.println("\nPrimeiro: Comece aos poucos");
-				System.out.println("\nSegundo: Estude");
-				System.out.println("\nTerceiro: Invista em si mesmo ");
-				System.out.println("\nQuarto: Ética e Trabalho árduo");
-				System.out.println("\nQuinto: Faça bons investimentos");
-				System.out.println("\nSexto: Estude e fique de olho nas Inflações");
-				System.out.println("\nSétimo: Faça o que ama");
-				System.out.println("\nOitavo: Faça um fundo de emergência");
-				System.out.println("\nNono: Nunca trapaceie");
-				System.out.println("\nDécimo: Tenha Resiliência nunca recue perante um desafio");
-				System.out.println("\nDécimo Primeiro: Valorize sua família");
+				
+				System.out.println("      __________________________________________________________");
+				System.out.println("     |                  MENU INVESTIMENTOS                      |");
+				System.out.println("     |__________________________________________________________|");
+				System.out.println("     |              Escolha uma das opções a seguir:            |");
+				System.out.println("     | (1) Dicas							                    |");
+				System.out.println("     |                                                          |");
+				System.out.println("     | (0) Voltar ao Menu Principal                             |");
+				System.out.println("     |__________________________________________________________|");
+				System.out.print("\n");
+				System.out.print("Digite a opção desejada: \n");
+				opDicas = leia.nextInt();
+				
+				switch(opDicas) {
+				
+				case 1:
+					System.out.println("\nPrimeiro: Comece aos poucos");
+					System.out.println("\nSegundo: Estude");
+					System.out.println("\nTerceiro: Invista em si mesmo ");
+					System.out.println("\nQuarto: Ética e Trabalho árduo");
+					System.out.println("\nQuinto: Faça bons investimentos");
+					System.out.println("\nSexto: Estude e fique de olho nas Inflações");
+					System.out.println("\nSétimo: Faça o que ama");
+					System.out.println("\nOitavo: Faça um fundo de emergência");
+					System.out.println("\nNono: Nunca trapaceie");
+					System.out.println("\nDécimo: Tenha Resiliência nunca recue perante um desafio");
+					System.out.println("\nDécimo Primeiro: Valorize sua família");
+					break;
+					
+				case 0:
+					break;
+
+				default:
+					System.out.print(cores.TEXT_RED_BOLD + "Opção Inválida! \n\n " + cores.TEXT_RESET);
+				}
+				
 				break;
 
 			case 7:
