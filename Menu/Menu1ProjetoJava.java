@@ -9,15 +9,19 @@ public class Menu1ProjetoJava {
 	public static void main(String[] args) {
 			
 			String nome;
-			int opcao, idade, opRenda, dia, inv, opInv;
-			double porcentagemInvMedio, porcentagemInvCurto, porcentagemInvLongo;
+			
+			int opcao, idade, opRenda, dia, inv, opInv, opPoup;
+			
+			double porcentagemInvMedio, porcentagemInvCurto, porcentagemInvLongo,rendaFixa = 0, var, invCurto = 0, invMedio=0, invLongo =0, invTotal =0, somaPoup = 0;
+			
 			Scanner leia = new Scanner(System.in);
-		        double rendaFixa = 0, var, invCurto = 0, invMedio=0, invLongo =0, invTotal =0;
-		        List<Double> rendaVar = new ArrayList<Double>();
-		      
+		    
+			List<Double> rendaVar = new ArrayList<Double>();
+
+			List<Double> listaPoup = new ArrayList<Double>();
 		
 			
-			
+			// Menu Principal
 			System.out.println("*********************************************************************************************************************************");
 			System.out.println("*                                                        BEM VINDE AO TIO PATINHAS                                              *");
 			System.out.println("*                                            O sistema que te ajuda a organizar suas finanças                                   *");
@@ -50,7 +54,7 @@ public class Menu1ProjetoJava {
 				System.out.println(" \n");
 				opcao = leia.nextInt();
 				
-				
+			// Menu Renda	
 			switch (opcao) {
 			case 1:
 				do {
@@ -90,8 +94,9 @@ public class Menu1ProjetoJava {
 					var = leia.nextDouble();
 					rendaVar.add(var);
 					
-					for(Double listaVar:rendaVar) {
-					}
+					for (int i = 0; i < rendaVar.size(); i++) {
+							somaVariavel += rendaVar.get(i);
+						}
 					break;
 				case 4:
 					System.out.println("\nEsse e o seu resumo de Ganhos:");
@@ -116,8 +121,77 @@ public class Menu1ProjetoJava {
 				break;
 		
 			case 3:
-				System.out.println("\n Insira valor para poupança: ");
+
+			// Menu Poupança
+				do {
+
+					System.out.println("	      __________________________________________________________");
+					System.out.println("	     |                      MENU POUPANÇA                       |");
+					System.out.println("	     |__________________________________________________________|");
+					System.out.println("	     |              Escolha uma das opções a seguir:            |");
+					System.out.println("	     | (1) Adicionar Renda                                      |");
+					System.out.println("	     |                                                          |");
+					System.out.println("	     | (2) Listar Renda 	                                    |");
+					System.out.println("	     |                                                          |");
+					System.out.println("	     | (3) Remover Renda                                        |");
+					System.out.println("	     |                                                          |");
+					System.out.println("	     | (4) Resumo da Renda                                      |");
+					System.out.println("	     |                                                          |");
+					System.out.println("	     | (0) Voltar ao Menu Principal                             |");
+					System.out.println("	     |__________________________________________________________|");
+					System.out.print("\n");
+					System.out.print("Digite a opção desejada: \n");
+
+					opPoup = leia.nextInt();
+
+					switch (opPoup) {
+
+					case 1:
+						System.out.println("Digite um valor que deseja inserir na poupança: ");
+						double adicionarPoup = leia.nextDouble();
+						listaPoup.add(adicionarPoup);
+						break;
+						
+					case 2:
+						vazio = listaPoup.isEmpty();
+						if (vazio == true) {
+							System.out.print("Poupança está vazia!");
+						} else {
+							System.out.println("\n Todos as rendas inseridos na poupança: $" + listaPoup);
+						}
+
+						break;
+					case 3:
+						vazio = listaPoup.isEmpty();
+						if (vazio == true) {
+							System.out.print("Não há renda para remover! Poupança está vazia!");
+						} else {
+							System.out.print("\n Digite a renda que deseja remover: ");
+							double removePoup = leia.nextDouble();
+							if (listaPoup.contains(removePoup)) {
+								listaPoup.remove(removePoup);
+							}
+						}
+						break;
+					case 4:
+						for (int i = 0; i < listaPoup.size(); i++) {
+							somaPoup += listaPoup.get(i);
+						}
+						System.out.println("Lista todas as rendas inseradas na poupança: " + listaPoup);
+						System.out.printf("Total da renda insera na poupança: %.2f", somaPoup);
+						break;
+					case 0:
+						break;
+
+					default:
+						System.out.print(cores.TEXT_RED_BOLD + "Opção Inválida! \n\n " + cores.TEXT_RESET);
+					}
+
+				} while (opPoup != 0);
+
 				break;
+			
+			// Menu Investimento
 			case 4:
 				
 				
@@ -191,11 +265,12 @@ public class Menu1ProjetoJava {
 				 }while(opInv !=0);
 				break;
 				
-				
+			// Menu Resumo Geral	
 			case 5:
 				System.out.println("\n\n Resumo Geral");
 				break;
-				
+
+			// Orientações sobre investimento	
 			case 6:
 				System.out.println("\nPrimeiro: Comece aos poucos");
 				System.out.println("\nSegundo: Estude");
