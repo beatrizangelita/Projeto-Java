@@ -1,4 +1,4 @@
-package Exercicios;
+package Projeto-Java;
 
 import java.util.Scanner;
 import java.util.ArrayList;
@@ -13,7 +13,7 @@ public class Menu1ProjetoJava {
 		int opcao, idade, opRenda, inv, opInv, opPoup, opDespesa, opDicas;
 
 		double porcentagemInvMedio, porcentagemInvCurto, porcentagemInvLongo, rendaFixa = 0, varRenda, invCurto = 0,
-				invMedio = 0, invLongo = 0, invTotal = 0, somaPoup = 0, somaVariavel = 0, despesaFixa = 0, somaDespesa = 0,
+				invMedio = 0, invLongo = 0, invTotal = 0, somaPoup = 0, somaVariavel = 0, somaDespesa = 0,
 				varDespesa;
 
 		boolean vazio;
@@ -25,6 +25,8 @@ public class Menu1ProjetoJava {
 		List<Double> listaPoup = new ArrayList<Double>();
 
 		List<Double> despesaVar = new ArrayList<Double>();
+		
+		List<Double> despesaFixa = new ArrayList<Double>();
 
 		// Menu Principal
 		System.out.println(
@@ -153,11 +155,13 @@ public class Menu1ProjetoJava {
 					System.out.println("     |                      MENU DESPESAS                       |");
 					System.out.println("     |__________________________________________________________|");
 					System.out.println("     |              Escolha uma das opções a seguir:            |");
-					System.out.println("     | (1) Inserir Despesas Fixas                               |");
+					System.out.println("     | (1) Adicionar Despesas Fixas                             |");
 					System.out.println("     |                                                          |");
 					System.out.println("     | (2) Adicionar Despesas Casuais                           |");
 					System.out.println("     |                                                          |");
-					System.out.println("     | (3) Resumo de Gastos                                     |");
+					System.out.println("     | (3) Alterar Lancamentos                                  |");
+					System.out.println("     |                                                          |");
+					System.out.println("     | (4) Valor total de Despesas                              |");
 					System.out.println("     |                                                          |");
 					System.out.println("     | (0) Voltar ao Menu Principal                             |");
 					System.out.println("     |__________________________________________________________|");
@@ -179,6 +183,77 @@ public class Menu1ProjetoJava {
 						for (int i = 0; i < despesaVar.size(); i++) {
 							somaDespesa += despesaVar.get(i);
 						}
+						break;
+					case 3:
+						int opAlteraDesp,indiceFix, indiceVar;
+						do {
+							System.out.println("      __________________________________________________________");
+							System.out.println("     |                      MENU DESPESAS                       |");
+							System.out.println("     |__________________________________________________________|");
+							System.out.println("     |              Escolha uma das opções a seguir:            |");
+							System.out.println("     | (1) Listar Despesas Fixas                                |");
+							System.out.println("     |                                                          |");
+							System.out.println("     | (2) Remover Despesa Fixas                                |");
+							System.out.println("     |                                                          |");						
+							System.out.println("     | (3) Listar Despesas Casuais                              |");
+							System.out.println("     |                                                          |");
+							System.out.println("     | (4) Remover Despesa Casual                               |");
+							System.out.println("     |                                                          |");
+							System.out.println("     | (0) Voltar ao Menu Principal                             |");
+							System.out.println("     |__________________________________________________________|");
+							System.out.println(" \n");
+							System.out.print("Digite a opção desejada: \n");
+							opAlteraDesp = leia.nextInt();
+							
+							switch(opAlteraDesp) {
+								case 1:
+									vazio = despesaFixa.isEmpty();
+									if (vazio == true) {
+										System.out.print("Voce nao tem despesas para lsitar!");
+									} else {
+										System.out.println("\n Todos as despesas inseridas: $" + despesaFixa);
+									}
+
+									break;
+								case 2:
+									System.out.print("Digite a posicao do lancamento que deseja remover: \n");
+									indiceFix = leia.nextInt();
+									
+									despesaFixa.remove(indiceFix);
+									
+									System.out.print("Lancamento removido com sucesso \n");
+									
+									break;
+								case 3:
+									vazio = despesaVar.isEmpty();
+									if (vazio == true) {
+										System.out.print("Voce nao tem despesas para lsitar!");
+									} else {
+										System.out.println("\n Todos as despesas inseridas: $" + despesaVar);
+									}
+	
+									break;
+								case 4:
+									System.out.print("Digite a posicao do lancamento que deseja remover: \n");
+									indiceVar = leia.nextInt();
+									
+									despesaVar.remove(indiceVar);
+									
+									System.out.print("Lancamento removido com sucesso \n");
+									break;
+								case 0:
+									
+									break;
+								default:
+									System.out.print(cores.TEXT_RED_BOLD + "Opção Inválida! \n\n " + cores.TEXT_RESET);
+							}			
+									break;
+								
+							
+							}
+							
+						}while(opAlteraDesp != 0);
+
 						break;
 					case 4:
 						System.out.println("\nEsse e o seu resumo de Ganhos:");
@@ -403,4 +478,4 @@ public class Menu1ProjetoJava {
 		
 			
 	}
-}		
+		
