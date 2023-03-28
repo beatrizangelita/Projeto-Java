@@ -1,7 +1,9 @@
-package Projeto-Java;
+package ProjetoJava;
 
 import java.util.Scanner;
+import java.util.Vector;
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 public class Menu1ProjetoJava {
@@ -15,6 +17,7 @@ public class Menu1ProjetoJava {
 		double porcentagemInvMedio, porcentagemInvCurto, porcentagemInvLongo, rendaFixa = 0, varRenda, invCurto = 0,
 				invMedio = 0, invLongo = 0, invTotal = 0, somaPoup = 0, somaVariavel = 0, somaDespesa = 0,
 				varDespesa;
+		
 
 		boolean vazio;
 
@@ -26,7 +29,7 @@ public class Menu1ProjetoJava {
 
 		List<Double> despesaVar = new ArrayList<Double>();
 		
-		List<Double> despesaFixa = new ArrayList<Double>();
+		List<Float> despesaFixa = new ArrayList<Float>();
 
 		// Menu Principal
 		System.out.println(
@@ -141,7 +144,7 @@ public class Menu1ProjetoJava {
 
 						break;
 					default:
-						System.out.print(cores.TEXT_RED_BOLD + "Opção Inválida! \n\n " + cores.TEXT_RESET);
+						System.out.print("Opção Inválida! \n\n ");
 						break;
 					}
 				} while (opRenda != 0);
@@ -169,10 +172,13 @@ public class Menu1ProjetoJava {
 					System.out.print("Digite a opção desejada: \n");
 					opDespesa = leia.nextInt();
 
+					
 					switch (opDespesa) {
 					case 1:
+						float fixaDespesa;
 						System.out.println("\nDigite o valor da sua Despesa Fixa: ");
-						despesaFixa = leia.nextDouble();
+						fixaDespesa = leia.nextFloat();
+						despesaFixa.add(fixaDespesa);
 						System.out.println("\nDespesa Fixa adicionada com sucesso!");
 						break;
 					case 2:
@@ -245,12 +251,12 @@ public class Menu1ProjetoJava {
 									
 									break;
 								default:
-									System.out.print(cores.TEXT_RED_BOLD + "Opção Inválida! \n\n " + cores.TEXT_RESET);
+									System.out.print("Opção Inválida! \n\n ");
 							}			
 									break;
 								
 							
-							}
+
 							
 						}while(opAlteraDesp != 0);
 
@@ -259,14 +265,14 @@ public class Menu1ProjetoJava {
 						System.out.println("\nEsse e o seu resumo de Ganhos:");
 						System.out.println("\n\nRenda Fixa: " + despesaFixa);
 						System.out.println("\n\nRenda Variavel: " + somaDespesa);
-						System.out.println("\nTotal de Entradas: " + (despesaFixa + somaDespesa));
+						System.out.println("\nTotal de Entradas: " +  somaDespesa);
 
 						break;
 					case 0:
 
 						break;
 					default:
-						System.out.print(cores.TEXT_RED_BOLD + "Opção Inválida! \n\n " + cores.TEXT_RESET);
+						System.out.print("Opção Inválida! \n\n ");
 					}
 					
 				} while (opDespesa != 0);
@@ -284,7 +290,7 @@ public class Menu1ProjetoJava {
 					System.out.println("	     |              Escolha uma das opções a seguir:            |");
 					System.out.println("	     | (1) Adicionar Valor                                      |");
 					System.out.println("	     |                                                          |");
-					System.out.println("	     | (2) Listar Valor 	                                |");
+					System.out.println("	     | (2) Listar Valor 	                                    |");
 					System.out.println("	     |                                                          |");
 					System.out.println("	     | (3) Remover Valor                                        |");
 					System.out.println("	     |                                                          |");
@@ -337,7 +343,7 @@ public class Menu1ProjetoJava {
 						break;
 
 					default:
-						System.out.print(cores.TEXT_RED_BOLD + "Opção Inválida! \n\n " + cores.TEXT_RESET);
+						System.out.print("Opção Inválida! \n\n ");
 					}
 
 				} while (opPoup != 0);
@@ -414,7 +420,7 @@ public class Menu1ProjetoJava {
 						break;
 
 					default:
-						System.out.print(cores.TEXT_RED_BOLD + "Opção Inválida! \n\n " + cores.TEXT_RESET);
+						System.out.print("Opção Inválida! \n\n ");
 					}
 
 				} while (opInv != 0);
@@ -500,7 +506,7 @@ public class Menu1ProjetoJava {
 					break;
 
 				default:
-					System.out.print(cores.TEXT_RED_BOLD + "Opção Inválida! \n\n " + cores.TEXT_RESET);
+					System.out.print("Opção Inválida! \n\n ");
 				}
 				
 				break;
@@ -512,10 +518,13 @@ public class Menu1ProjetoJava {
 			default:
 				System.out.println("\nOpção Inválida!\n");
 				break;
-			}
-		} while (opcao != 7);
-		System.out.println("\nTio Patinhas te espera!");
-		
 			
+		
+}
+
+		}while (opcao != 7);
+		System.out.println("\nTio Patinhas te espera!");
+
 	}
+}
 		
