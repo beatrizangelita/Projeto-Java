@@ -1,4 +1,4 @@
-package ProjetoJava;
+package projetos;
 
 import java.util.Scanner;
 import java.util.Vector;
@@ -14,9 +14,9 @@ public class Menu1ProjetoJava {
 
 		int opcao, idade, opRenda, inv, opInv, opPoup, opDespesa, opDicas;
 
-		double porcentagemInvMedio, porcentagemInvCurto, porcentagemInvLongo, rendaFixa = 0, varRenda, invCurto = 0,
+		double porcentagemInvMedio, porcentagemInvCurto, porcentagemInvLongo, rendaFixa = 0, varRenda = 0, invCurto = 0,
 				invMedio = 0, invLongo = 0, invTotal = 0, somaPoup = 0, somaVariavel = 0, somaDespesa = 0,
-				varDespesa,totalDespVar=0,totalDespFix=0;
+				varDespesa,totalDespVar=0,totalDespFix=0,saldo1=0,saldo2=0;
 		
 
 		boolean vazio;
@@ -49,6 +49,7 @@ public class Menu1ProjetoJava {
 				+ "! Agora vamos te apresentar o nosso menu: ");
 
 		do {
+			System.out.println("\n\n");
 			System.out.println(
 					"                             _________________________________________________________________________");
 			System.out.println(
@@ -136,11 +137,14 @@ public class Menu1ProjetoJava {
 						}
 						break;
 					case 4:
-						System.out.println("\nEsse e o seu resumo de Ganhos:");
-						System.out.println("\n\nRenda Fixa: " + rendaFixa);
+						saldo1 = rendaFixa + varRenda;
+						System.out.println("\nRenda Fixa: " + rendaFixa);
+						System.out.println("\nRenda Variavel: "+varRenda);
+						System.out.println("\n\nEsse e o seu resumo de Ganhos: "+saldo1);
 
 						break;
 					case 0:
+						System.out.println("\nSeu saldo atual de: "+saldo1);
 
 						break;
 					default:
@@ -149,6 +153,8 @@ public class Menu1ProjetoJava {
 					}
 				} while (opRenda != 0);
 				break;
+				
+				
 
 			// Menu Despesas
 			case 2:
@@ -260,7 +266,7 @@ public class Menu1ProjetoJava {
 									System.out.print("Lancamento removido com sucesso \n");
 									break;
 								case 0:
-									
+							
 									break;
 								default:
 									System.out.print("Opção Inválida! \n\n ");
@@ -274,14 +280,18 @@ public class Menu1ProjetoJava {
 
 						break;
 					case 4:
+						
 						somaDespesa = totalDespFix + totalDespVar;
-						System.out.println("\nEsse e o seu resumo de Gastos:");
+						System.out.println("\nEsse e o seu resumo de Gastos");
 						System.out.println("\n\nDespesa Fixa: " + totalDespFix);
-						System.out.println("\n\nDespesa Variavel: " + totalDespVar);
+						System.out.println("\nDespesa Variavel: " + totalDespVar);
 						System.out.println("\nTotal de Saidas: " +  somaDespesa);
+						
 
 						break;
 					case 0:
+						saldo2 = saldo1-somaDespesa;
+						System.out.println("\nSeu saldo atual é de:  "+saldo2);
 
 						break;
 					default:
@@ -303,7 +313,7 @@ public class Menu1ProjetoJava {
 					System.out.println("	     |              Escolha uma das opções a seguir:            |");
 					System.out.println("	     | (1) Adicionar Valor                                      |");
 					System.out.println("	     |                                                          |");
-					System.out.println("	     | (2) Listar Valor 	                                |");
+					System.out.println("	     | (2) Listar Valor 	                                    |");
 					System.out.println("	     |                                                          |");
 					System.out.println("	     | (3) Remover Valor                                        |");
 					System.out.println("	     |                                                          |");
@@ -322,6 +332,9 @@ public class Menu1ProjetoJava {
 						System.out.println("Digite um valor que deseja inserir na poupança: ");
 						double adicionarPoup = leia.nextDouble();
 						listaPoup.add(adicionarPoup);
+						if(saldo2<adicionarPoup) {
+							System.out.println("\nSaldo insufiente!!!");
+						}
 						break;
 
 					case 2:
@@ -353,6 +366,8 @@ public class Menu1ProjetoJava {
 						System.out.printf("Total da renda insera na poupança: %.2f", somaPoup);
 						break;
 					case 0:
+						saldo2 -= somaPoup;
+						System.out.println("\nSaldo atual é de: "+saldo2);
 						break;
 
 					default:
@@ -391,19 +406,28 @@ public class Menu1ProjetoJava {
 					case 1:
 						System.out.println("Insira um valor para investimento a curto prazo: ");
 						invCurto = leia.nextDouble();
-						System.out.println("\n Valor de Investimento inserido com sucesso!");
+						if(saldo2<invCurto){
+							System.out.println("\nSaldo insulficiente!!!!");
+						}else {
+						System.out.println("\n Valor de Investimento inserido com sucesso!");}
 						break;
 
 					case 2:
 						System.out.println("\n Insira um valor para investimento a médio prazo: ");
 						invMedio = leia.nextDouble();
-						System.out.println("\n Valor de Investimento inserido com sucesso!");
+						if(saldo2<invMedio){
+							System.out.println("\nSaldo insulficiente!!!!");
+						}else {
+						System.out.println("\n Valor de Investimento inserido com sucesso!");}
 						break;
 
 					case 3:
 						System.out.println("\n Insira um valor para investimento a longo prazo:  ");
 						invLongo = leia.nextDouble();
-						System.out.println("\n Valor de Investimento inserido com sucesso!");
+						if(saldo2<invLongo){
+							System.out.println("\nSaldo insulficiente!!!!");
+						}else {
+						System.out.println("\n Valor de Investimento inserido com sucesso!");}
 						break;
 
 					case 4:
@@ -430,8 +454,10 @@ public class Menu1ProjetoJava {
 						System.out.println("\n");
 
 					case 0:
+						saldo2 -= invTotal;
+						System.out.println("\nSaldo atual é de: "+saldo2);
+						
 						break;
-
 					default:
 						System.out.print("Opção Inválida! \n\n ");
 					}
@@ -441,11 +467,11 @@ public class Menu1ProjetoJava {
 
 			// Menu Resumo Geral
 			case 5:
-	        System.out.println("                             _________________________________________________________________________");
+	    System.out.println("                             _________________________________________________________________________");
 		System.out.println("                            |                            RELATÓRIO GERAL                              |");
 		System.out.println("                            |_________________________________________________________________________|");
 		System.out.println("                            |                                                                         |");
-		System.out.println("                            |     				         GASTOS                           |");
+		System.out.println("                            |     				         GASTOS                                       |");
 		System.out.println("                            |    Total Despesas Fixas:                                                |");
 		System.out.println("                            |    if(totaldesp < 30% ){                                                |");
 		System.out.println("                            |           'O Tio Patinhas está orgulhoso de você!                       |");
@@ -539,5 +565,5 @@ public class Menu1ProjetoJava {
 		System.out.println("\nTio Patinhas te espera!");
 
 	}
-}
-		
+
+}		
