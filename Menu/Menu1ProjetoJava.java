@@ -488,10 +488,10 @@ public class Menu1ProjetoJava {
 			case 6:
 				
 				System.out.println("      __________________________________________________________");
-				System.out.println("     |                  	MENU DICAS		            |");
+				System.out.println("     |                  	MENU DICAS		           		    |");
 				System.out.println("     |__________________________________________________________|");
 				System.out.println("     |              Escolha uma das opções a seguir:            |");
-				System.out.println("     | (1) Dicas						    |");
+				System.out.println("     | (1) Dicas						   					    |");
 				System.out.println("     |                                                          |");
 				System.out.println("     | (0) Voltar ao Menu Principal                             |");
 				System.out.println("     |__________________________________________________________|");
