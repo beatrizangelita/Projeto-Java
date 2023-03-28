@@ -290,7 +290,7 @@ public class Menu1ProjetoJava {
 					System.out.println("	     |              Escolha uma das opções a seguir:            |");
 					System.out.println("	     | (1) Adicionar Valor                                      |");
 					System.out.println("	     |                                                          |");
-					System.out.println("	     | (2) Listar Valor 	                                    |");
+					System.out.println("	     | (2) Listar Valor 	                                |");
 					System.out.println("	     |                                                          |");
 					System.out.println("	     | (3) Remover Valor                                        |");
 					System.out.println("	     |                                                          |");
@@ -428,11 +428,11 @@ public class Menu1ProjetoJava {
 
 			// Menu Resumo Geral
 			case 5:
-				System.out.println("                             _________________________________________________________________________");
+	        System.out.println("                             _________________________________________________________________________");
 		System.out.println("                            |                            RELATÓRIO GERAL                              |");
 		System.out.println("                            |_________________________________________________________________________|");
 		System.out.println("                            |                                                                         |");
-		System.out.println("                            |     					         GASTOS                                   |");
+		System.out.println("                            |     				         GASTOS                           |");
 		System.out.println("                            |    Total Despesas Fixas:                                                |");
 		System.out.println("                            |    if(totaldesp < 30% ){                                                |");
 		System.out.println("                            |           'O Tio Patinhas está orgulhoso de você!                       |");
@@ -475,10 +475,10 @@ public class Menu1ProjetoJava {
 			case 6:
 				
 				System.out.println("      __________________________________________________________");
-				System.out.println("     |                  		MENU DICAS		                |");
+				System.out.println("     |                  	MENU DICAS		            |");
 				System.out.println("     |__________________________________________________________|");
 				System.out.println("     |              Escolha uma das opções a seguir:            |");
-				System.out.println("     | (1) Dicas							                    |");
+				System.out.println("     | (1) Dicas						    |");
 				System.out.println("     |                                                          |");
 				System.out.println("     | (0) Voltar ao Menu Principal                             |");
 				System.out.println("     |__________________________________________________________|");
