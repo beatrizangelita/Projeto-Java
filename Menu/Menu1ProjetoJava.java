@@ -16,7 +16,7 @@ public class Menu1ProjetoJava {
 
 		double porcentagemInvMedio, porcentagemInvCurto, porcentagemInvLongo, rendaFixa = 0, varRenda, invCurto = 0,
 				invMedio = 0, invLongo = 0, invTotal = 0, somaPoup = 0, somaVariavel = 0, somaDespesa = 0,
-				varDespesa;
+				varDespesa,totalDespVar=0,totalDespFix=0;
 		
 
 		boolean vazio;
@@ -180,6 +180,9 @@ public class Menu1ProjetoJava {
 						fixaDespesa = leia.nextFloat();
 						despesaFixa.add(fixaDespesa);
 						System.out.println("\nDespesa Fixa adicionada com sucesso!");
+						for(int x=0;x<despesaFixa.size();x++) {
+							totalDespFix +=despesaFixa.get(x);
+						}
 						break;
 					case 2:
 						System.out.println("\nInsira o valor da entrada:");
@@ -187,7 +190,7 @@ public class Menu1ProjetoJava {
 						despesaVar.add(varDespesa);
 
 						for (int i = 0; i < despesaVar.size(); i++) {
-							somaDespesa += despesaVar.get(i);
+							totalDespVar += despesaVar.get(i);
 						}
 						break;
 					case 3:
@@ -215,7 +218,7 @@ public class Menu1ProjetoJava {
 								case 1:
 									vazio = despesaFixa.isEmpty();
 									if (vazio == true) {
-										System.out.print("Voce nao tem despesas para lsitar!");
+										System.out.print("Voce nao tem despesas para listar!");
 									} else {
 										System.out.println("\n Todos as despesas inseridas: $" + despesaFixa);
 									}
@@ -224,8 +227,12 @@ public class Menu1ProjetoJava {
 								case 2:
 									System.out.print("Digite a posicao do lancamento que deseja remover: \n");
 									indiceFix = leia.nextInt();
+									if(despesaFixa.size()<indiceFix) {
+										System.out.println("Lancamento inexistente, digite a posicao de um lancamento que conste na lista");
 									
-									despesaFixa.remove(indiceFix);
+									}else {
+										despesaFixa.remove(indiceFix-1);
+									}
 									
 									System.out.print("Lancamento removido com sucesso \n");
 									
@@ -242,8 +249,13 @@ public class Menu1ProjetoJava {
 								case 4:
 									System.out.print("Digite a posicao do lancamento que deseja remover: \n");
 									indiceVar = leia.nextInt();
+									if(despesaVar.size()<indiceVar) {
+										System.out.println("Lancamento inexistente, digite a posicao de um lancamento que conste na lista");
 									
-									despesaVar.remove(indiceVar);
+									}else {
+										despesaVar.remove(indiceVar-1);
+									}
+								
 									
 									System.out.print("Lancamento removido com sucesso \n");
 									break;
@@ -262,10 +274,11 @@ public class Menu1ProjetoJava {
 
 						break;
 					case 4:
-						System.out.println("\nEsse e o seu resumo de Ganhos:");
-						System.out.println("\n\nRenda Fixa: " + despesaFixa);
-						System.out.println("\n\nRenda Variavel: " + somaDespesa);
-						System.out.println("\nTotal de Entradas: " +  somaDespesa);
+						somaDespesa = totalDespFix + totalDespVar;
+						System.out.println("\nEsse e o seu resumo de Gastos:");
+						System.out.println("\n\nDespesa Fixa: " + totalDespFix);
+						System.out.println("\n\nDespesa Variavel: " + totalDespVar);
+						System.out.println("\nTotal de Saidas: " +  somaDespesa);
 
 						break;
 					case 0:
