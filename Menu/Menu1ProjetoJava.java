@@ -14,7 +14,7 @@ public static void main(String[] args) {
 
 		double porcentagemInvMedio, porcentagemInvCurto, porcentagemInvLongo, rendaFixa = 0, varRenda = 0, invCurto = 0,
 				invMedio = 0, invLongo = 0, invTotal = 0, somaPoup = 0, somaVariavel = 0, somaDespesa = 0, varDespesa,
-				totalDespVar = 0, totalDespFix = 0, saldo1 = 0, saldo2 = 0, somaTotalDespesas = 0;
+				totalDespVar = 0, totalDespFix = 0, saldo1 = 0, saldo2 = 0, somaTotalRenda = 0;
 
 		boolean vazio;
 
@@ -95,11 +95,7 @@ public static void main(String[] args) {
 					System.out.println("     |              Escolha uma das opções a seguir:            |");
 					System.out.println("     | (1) Inserir Renda Fixa                                   |");
 					System.out.println("     |                                                          |");
-					System.out.println("     | (2) Alterar Renda Fixa                                   |");
-					System.out.println("     |                                                          |");
-					System.out.println("     | (3) Inserir Renda Variavel                               |");
-					System.out.println("     |                                                          |");
-					System.out.println("     | (4) Resumo de Ganhos                                     |");
+					System.out.println("     | (2) Inserir Renda Variavel                               |");
 					System.out.println("     |                                                          |");
 					System.out.println("     | (0) Voltar ao Menu Principal                             |");
 					System.out.println("     |__________________________________________________________|");
@@ -113,37 +109,23 @@ public static void main(String[] args) {
 						rendaFixa = leia.nextDouble();
 						System.out.println("\nRenda Fixa adicionada com sucesso!");
 						break;
+
 					case 2:
-						if (rendaFixa == 0) {
-							System.out.println("\nVoce não possui Renda Fixa cadastrada."
-									+ "\nCadastre um valor antes de alterar!");
-						} else {
-							System.out.println("\nDigite o valor da sua NOVA Renda Fixa");
-							rendaFixa = leia.nextDouble();
-						}
-						System.out.println("\nValor da Renda Fixa alterado com sucesso!");
-						break;
-					case 3:
 						System.out.println("\nInsira o valor da entrada:");
 						varRenda = leia.nextDouble();
 						rendaVar.add(varRenda);
 
-						for (int i = 0; i < rendaVar.size(); i++) {
-							somaVariavel += rendaVar.get(i);
-						}
-						break;
-					case 4:
-
-						somaTotalDespesas = somaVariavel + rendaFixa;
-
-						saldo1 = rendaFixa + varRenda;
-						System.out.println("\nRenda Fixa: R$ " + rendaFixa);
-						System.out.println("\nRenda Variavel: R$" + varRenda);
-						System.out.println("\nRenda Total: R$" + somaTotalDespesas);
-						System.out.println("\n\nEsse e o seu resumo de Ganhos: R$" + saldo1);
 						break;
 
 					case 0:
+						for (int i = 0; i < rendaVar.size(); i++) {
+							somaVariavel += rendaVar.get(i);
+						}
+
+						somaTotalRenda = somaVariavel + rendaFixa;
+
+						saldo1 = rendaFixa + somaVariavel;
+
 						System.out.println("\nSeu saldo atual de: R$" + saldo1);
 						break;
 
@@ -170,8 +152,6 @@ public static void main(String[] args) {
 					System.out.println("     |                                                          |");
 					System.out.println("     | (3) Alterar Lancamentos                                  |");
 					System.out.println("     |                                                          |");
-					System.out.println("     | (4) Valor total de Despesas                              |");
-					System.out.println("     |                                                          |");
 					System.out.println("     | (0) Voltar ao Menu Principal                             |");
 					System.out.println("     |__________________________________________________________|");
 					System.out.println(" \n");
@@ -179,24 +159,20 @@ public static void main(String[] args) {
 					opDespesa = leia.nextInt();
 
 					switch (opDespesa) {
+
 					case 1:
 						float fixaDespesa;
 						System.out.println("\nDigite o valor da sua Despesa Fixa: ");
 						fixaDespesa = leia.nextFloat();
 						despesaFixa.add(fixaDespesa);
 						System.out.println("\nDespesa Fixa adicionada com sucesso!");
-						for (int x = 0; x < despesaFixa.size(); x++) {
-							totalDespFix += despesaFixa.get(x);
-						}
+
 						break;
 					case 2:
 						System.out.println("\nInsira o valor da entrada:");
 						varDespesa = leia.nextDouble();
 						despesaVar.add(varDespesa);
 
-						for (int i = 0; i < despesaVar.size(); i++) {
-							totalDespVar += despesaVar.get(i);
-						}
 						break;
 					case 3:
 						int opAlteraDesp, indiceFix, indiceVar;
@@ -277,15 +253,18 @@ public static void main(String[] args) {
 
 						break;
 
-					case 4:
-						somaDespesa = totalDespFix + totalDespVar;
-						System.out.println("\nEsse e o seu resumo de Gastos:");
-						System.out.println("\n\nDespesa Fixa: " + totalDespFix);
-						System.out.println("\n\nDespesa Variavel: " + totalDespVar);
-						System.out.println("\nTotal de Saidas: " + somaDespesa);
-
-						break;
 					case 0:
+
+						for (int x = 0; x < despesaFixa.size(); x++) {
+							totalDespFix += despesaFixa.get(x);
+						}
+
+						for (int i = 0; i < despesaVar.size(); i++) {
+							totalDespVar += despesaVar.get(i);
+						}
+						
+						somaDespesa = totalDespFix + totalDespVar;
+
 						saldo2 = saldo1 - somaDespesa;
 						System.out.println("\nSeu saldo atual é de:  " + saldo2);
 						break;
@@ -302,6 +281,7 @@ public static void main(String[] args) {
 				// Menu Poupança
 				do {
 
+					System.out.print("\n");
 					System.out.println("	      __________________________________________________________");
 					System.out.println("	     |                      MENU POUPANÇA                       |");
 					System.out.println("	     |__________________________________________________________|");
@@ -311,8 +291,6 @@ public static void main(String[] args) {
 					System.out.println("	     | (2) Listar Valor 	                                    |");
 					System.out.println("	     |                                                          |");
 					System.out.println("	     | (3) Remover Valor                                        |");
-					System.out.println("	     |                                                          |");
-					System.out.println("	     | (4) Valor total da Poupança                              |");
 					System.out.println("	     |                                                          |");
 					System.out.println("	     | (0) Voltar ao Menu Principal                             |");
 					System.out.println("	     |__________________________________________________________|");
@@ -328,7 +306,7 @@ public static void main(String[] args) {
 						double adicionarPoup = leia.nextDouble();
 						listaPoup.add(adicionarPoup);
 						if (saldo2 < adicionarPoup) {
-							System.out.println("\nSaldo insufiente!!!");
+							System.out.println("\nSaldo insufiente!!! \n");
 						}
 						break;
 
@@ -353,15 +331,13 @@ public static void main(String[] args) {
 							}
 						}
 						break;
-					case 4:
+
+					case 0:
+
 						for (int i = 0; i < listaPoup.size(); i++) {
 							somaPoup += listaPoup.get(i);
 						}
-						// System.out.println("Lista todas as rendas inseradas na poupança: R$" +
-						// listaPoup);
-						System.out.printf("Total da renda inserida na poupança: R$ %.2f", somaPoup);
-						break;
-					case 0:
+
 						saldo2 -= somaPoup;
 						System.out.println("\nSaldo atual é de: " + saldo2);
 						break;
@@ -388,9 +364,9 @@ public static void main(String[] args) {
 					System.out.println("     |                                                          |");
 					System.out.println("     | (3) Inserir Investimentos a Longo Prazo                  |");
 					System.out.println("     |                                                          |");
-					System.out.println("     | (4) Valor Total de Investimentos                         |");
-					System.out.println("     |                                                          |");
-					System.out.println("     | (5) Médias de cada variável                              |");
+					// System.out.println(" | (4) Valor Total de Investimentos |");
+					// System.out.println(" | |");
+					System.out.println("     | (4) Médias de cada variável                              |");
 					System.out.println("     |                                                          |");
 					System.out.println("     | (0) Voltar ao Menu Principal                             |");
 					System.out.println("     |__________________________________________________________|");
@@ -431,11 +407,6 @@ public static void main(String[] args) {
 
 					case 4:
 						invTotal = invCurto + invMedio + invLongo;
-						System.out.println("\n Valor total inserido para investimentos: R$ " + invTotal);
-						break;
-
-					case 5:
-						invTotal = invCurto + invMedio + invLongo;
 						porcentagemInvCurto = (invCurto * 100) / invTotal;
 						leia.nextLine();
 
@@ -453,6 +424,9 @@ public static void main(String[] args) {
 						System.out.println("\n");
 
 					case 0:
+
+						invTotal = invCurto + invMedio + invLongo;
+
 						saldo2 -= invTotal;
 						System.out.println("\nSaldo atual é de: " + saldo2);
 						break;
@@ -472,7 +446,7 @@ public static void main(String[] args) {
 					System.out.println("     |                     MENU Relatório Geral	                |");
 					System.out.println("     |__________________________________________________________|");
 					System.out.println("     |              Escolha uma das opções a seguir:            |");
-					System.out.println("     | (1) Relatório Geral					                    |");
+					System.out.println("     | (1) Relatório						                    |");
 					System.out.println("     |                                                          |");
 					System.out.println("     | (0) Voltar ao Menu Principal                             |");
 					System.out.println("     |__________________________________________________________|");
@@ -484,62 +458,77 @@ public static void main(String[] args) {
 
 					case 1:
 
-						System.out.println("	GASTOS	");
-						System.out.println("----------------------------------------------");
-						System.out.println("Total Renda: R$" + somaTotalDespesas);
-						System.out.println("Total Despesas Fixa: R$" + totalDespFix);
-						System.out.println("Total Despesas Variaveis: R$" + totalDespVar);
-						System.out.println("Total Poupança: R$" + somaPoup);
-						System.out.println("Total Investimento: R$" + invTotal);
-						System.out.println("----------------------------------------------");
+						System.out.println("**********************************************");
+						System.out.println("*		   Valor Total dos GASTOS	         *");
+						System.out.println("**********************************************");
+						System.out.println("* Renda: R$" + somaTotalRenda +             "*");
+						System.out.println("* Despesas Fixa: R$" + totalDespFix +       "*");
+						System.out.println("* Despesas Variaveis: R$" + totalDespVar +  "*");
+						System.out.println("* Poupança: R$" + somaPoup +                "*");
+						System.out.println("* Investimento: R$" + invTotal +            "*");
+						System.out.println("**********************************************");
 
-						// Calculo para verificar a porcentagem dos gastos
-						double porDespesasFixa = (totalDespFix * 100) / somaTotalDespesas;
-						double porDespesasVar = (totalDespVar * 100) / somaTotalDespesas;
-						double porPoupanca = (somaPoup * 100) / somaTotalDespesas;
-						double porInv = (invTotal * 100) / somaTotalDespesas;
+						// Calculo das porcentagem sobre o valor total da renda	
+						double porDespesasFixa = (totalDespFix * 100) / somaTotalRenda;
+						double porDespesasVar = (totalDespVar * 100) / somaTotalRenda;
+						double porPoupanca = (somaPoup * 100) / somaTotalRenda;
+						double porInv = (invTotal * 100) / somaTotalRenda;
 
+						// Validação da porcentegem total sobre despesas fixa
+						System.out.println("\n Despesas Fixa ");
+						System.out.println("\n Porcentagem: " + porDespesasFixa);
+						
 						if (porDespesasFixa <= 50) {
-							System.out.println("Porcentagem Despesas Fixa: " + porDespesasFixa);
+							
 							System.out.println(
-									" O Tio Patinhas está orgulhoso de você! \n Conseguiu manter suas despesas dentro do esperado!\n");
+									"\n O Tio Patinhas está orgulhoso de você! \n Conseguiu manter suas despesas dentro do esperado!");
 						} else {
-							System.out.println("O tio Patinhas está desapontado! Você ultrapassou X% do orçamento. "
+							System.out.println("\n O tio Patinhas está desapontado! Você ultrapassou o valor do orçamento. "
 									+ "\n Recomendamos que releia as preciosas dicas do Tio Patinhas!\n");
 						}
-						leia.nextLine();
+						
+						System.out.println("*************************************************************************************************");
+						
+						// Validação da porcentegem total sobre despesas variaveis
+						System.out.println("\n Despesas Variaveis ");
+						System.out.println("\n Porcentagem: " + porDespesasVar + "%");
 
-						System.out.println("----------------------------------------------");
 						if (porDespesasVar <= 30) {
-							System.out.println("Porcentagem Despesas Var: " + porDespesasVar);
 							System.out.println(
-									" O Tio Patinhas está orgulhoso de você! \n Conseguiu manter suas despesas dentro do esperado!\n");
+									"\n O Tio Patinhas está orgulhoso de você! \n Conseguiu manter suas despesas dentro do esperado!");
 						} else {
-							System.out.println("O tio Patinhas está desapontado! Você ultrapassou X% do orçamento. "
+							System.out.println("\n O tio Patinhas está desapontado! Você ultrapassou o valor do orçamento. "
 									+ "\n Recomendamos que releia as preciosas dicas do Tio Patinhas!\n");
 						}
-						leia.nextLine();
-
-						System.out.println("----------------------------------------------");
+						
+						System.out.println("*************************************************************************************************");
+						
+						// Validação da porcentegem total sobre a poupança
+						System.out.println("\n Poupança ");
+						System.out.println("\n Porcentagem: " + porPoupanca);
 						if (porPoupanca <= 10) {
-							System.out.println("Porcentagem Poupança: " + porPoupanca);
 							System.out.println(
-									" O Tio Patinhas está orgulhoso de você! \n Conseguiu manter suas despesas dentro do esperado!\n");
+									"\n O Tio Patinhas está orgulhoso de você! \n Conseguiu manter suas despesas dentro do esperado!");
 						} else {
-							System.out.println("O tio Patinhas está desapontado! Você ultrapassou X% do orçamento. "
+							System.out.println(" O tio Patinhas está desapontado! Você ultrapassou o valor do orçamento. "
 									+ "\n Recomendamos que releia as preciosas dicas do Tio Patinhas!\n");
 						}
-						leia.nextLine();
+						
+						System.out.println("*************************************************************************************************");
 
-						System.out.println("----------------------------------------------");
+						// Validação da porcentegem total sobre o investimento
+						System.out.println("\n Investimento");
+						System.out.println("\n Porcentagem: " + porInv);
 						if (porInv <= 10) {
-							System.out.println("Porcentagem Investimento: " + porInv);
+
 							System.out.println(
-									" O Tio Patinhas está orgulhoso de você! \n Conseguiu manter suas despesas dentro do esperado!\n");
+									" O Tio Patinhas está orgulhoso de você! \n Conseguiu manter suas despesas dentro do esperado!");
 						} else {
-							System.out.println("O tio Patinhas está desapontado! Você ultrapassou X% do orçamento. "
+							System.out.println(" O tio Patinhas está desapontado! Você ultrapassou o valor do orçamento. "
 									+ "\n Recomendamos que releia as preciosas dicas do Tio Patinhas!\n");
 						}
+						
+						System.out.println("*************************************************************************************************");
 
 						break;
 
@@ -606,7 +595,4 @@ public static void main(String[] args) {
 
 		} while (opcao != 7);
 		System.out.println("\nTio Patinhas te espera!");
-
-	}
-
 }
